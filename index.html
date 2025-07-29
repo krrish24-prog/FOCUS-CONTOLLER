@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Focus Timer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🎯 Focus Mode</h1>
+
+    <div class="time-picker">
+      <select id="hours"></select> :
+      <select id="minutes"></select> :
+      <select id="seconds"></select>
+    </div>
+
+    <div class="button-group">
+      <button onclick="startTimer()">Start</button>
+      <button onclick="stopTimer()">Stop</button>
+      <button onclick="resumeTimer()">Resume</button>
+    </div>
+
+    <div class="progress-timer-wrapper">
+      <div class="progress-container">
+        <svg class="progress-ring" width="150" height="150">
+          <circle class="ring-bg" cx="75" cy="75" r="60"/>
+          <circle class="ring-fill" cx="75" cy="75" r="60"/>
+        </svg>
+      </div>
+      <div class="timer" id="timer-display">00:00:00</div>
+    </div>
+
+    <div class="popup" id="popup">⚠ You seem distracted. Refocus!</div>
+
+    <div class="stop-reason" id="stop-section" style="display:none;">
+      <h3>Why did you stop?</h3>
+      <textarea id="stop-reason" placeholder="Be honest..."></textarea>
+      <button onclick="submitReason()">Submit Reason</button>
+    </div>
+
+    <div class="motivation" id="motivation" style="display:none;">
+      ✨ BE HONEST TO YOURSELF, NO EXCUSES OR DRAMA REASONS FOR STOPPING THE TIME ✨
+    </div>
+
+    <div class="quote">
+      TIME IS FUTURE – STAY AWAKE, FOCUS, AND BECOME THE 1% IN THE WORLD
+    </div>
+
+    <div class="logs" id="logs">
+      <h3>📝 Session Log</h3>
+      <ul id="log-list"></ul>
+      <button class="clear-btn" onclick="clearLogs()">Clear Sessions</button>
+    </div>
+
+    <audio id="finish-sound" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" preload="auto"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
